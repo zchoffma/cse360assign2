@@ -17,13 +17,15 @@ package cse360assign2;
  */
 public class AddingMachine {
 	private int total;
+	private String history;
 	
 	
 	/*
 	 * Class constructor
 	 */
 	public AddingMachine () {
-		total = 0;  // not needed - included for clarity
+		this.total = 0;  // not needed - included for clarity
+		this.history = "0";
 	}
 	
 	
@@ -33,7 +35,7 @@ public class AddingMachine {
 	 *  @return int
 	 */
 	public int getTotal () {
-		return 0;
+		return total;
 	}
 	
 	/*	adds the passed in int argument to the total
@@ -41,7 +43,8 @@ public class AddingMachine {
 	 * @argument int
 	 */
 	public void add (int value) {
-		
+		this.total = this.total + value;
+		this.history = this.history + " + " + value;
 	}
 	
 	/*	subtracts the passed in int argument to the total
@@ -49,7 +52,8 @@ public class AddingMachine {
 	 * @argument int
 	 */
 	public void subtract (int value) {
-		
+		this.total = this.total - value;
+		this.history = this.history + " - " + value;
 	}
 	
 	/* Returns the history of the adding machine in string format
@@ -57,7 +61,7 @@ public class AddingMachine {
 	 * @return string
 	 */
 	public String toString () {
-		return "";
+		return this.history;
 	}
 	
 	/*	Resets the value of the adding machine to 0 and
@@ -65,6 +69,7 @@ public class AddingMachine {
 	 * 
 	 */
 	public void clear() {
-		
+		this.total = 0;
+		this.history = "0";
 	}
 }
